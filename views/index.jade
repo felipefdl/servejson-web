@@ -1,0 +1,11 @@
+doctype html
+html(lang="en" ng-app="servejson" ng-controller="mainController")
+    include partials/head
+    include partials/styles
+    body
+        .container
+            include partials/header
+            include partials/loading_page
+            div(id="content-page" ng-view)
+            include partials/footer
+        include partials/scripts
