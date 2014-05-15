@@ -1,12 +1,14 @@
-/*jslint node:true*/
+/*jslint node:true, nomen:true*/
 'use strict';
 
 var gulp       = require('gulp');
 var jslint     = require('gulp-jslint');
 var uglify     = require('gulp-uglify');
 var imagemin   = require('gulp-imagemin');
-var jade       = require('gulp-jade');
 var browserify = require('gulp-browserify');
+var less       = require('gulp-less');
+var minifyCSS  = require('gulp-minify-css');
+var path       = require('path');
 
 gulp.task('copy_and_paste', function () {
     gulp.src('./src/fonts/*')
@@ -38,21 +40,24 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('./dist/scripts/app'));
 });
 
+gulp.task('less', function () {
+    gulp.src('./src/styles/**/*.less')
+        .pipe(less({
+            'paths': [ path.join(__dirname, 'src', 'styles', 'includes') ]
+        }))
+        .pipe(minifyCSS({keepBreaks: true}))
+        .pipe(gulp.dest('./dist/styles'));
+});
+
 gulp.task('images', function () {
     gulp.src('./src/images/*')
         .pipe(imagemin({ 'optimizationLevel': 5 }))
         .pipe(gulp.dest('./dist/images'));
 });
 
-gulp.task('templates', function () {
-    gulp.src('./src/templates/*.jade')
-        .pipe(jade())
-        .pipe(gulp.dest('./dist/templates'));
-});
-
 gulp.task('watch', function () {
     gulp.watch('./src/scripts/app/**/*.js', ['jslint', 'scripts']);
-    gulp.watch('./src/templates/**/*.jade', ['templates']);
+    gulp.watch('./src/styles/**/*.less', ['less']);
 });
 
-gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'images', 'templates']);
+gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'less', 'images']);

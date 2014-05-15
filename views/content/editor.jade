@@ -1,0 +1,35 @@
+div(class='container')
+    .row(ng-controller='home')
+        .col-md-2
+        .col-md-8
+            .servejson_main_div
+                .servejson_space_div
+                    .row
+                        .col-md-12
+                            h1.servejson_title New json
+                .servejson_space_div
+                    form(role='form')
+                        .form-group
+                            label Sub-Domain <small>(like: http://<strong class="text-primary">earth</strong>.servejson.com)</small>
+                            select(class='form-control input-sm' required='true')
+                                option(value='earth') Earth
+                                option(value='mars') Mars
+                                option(value='mercury') Mercury
+                                option(value='saturn') Saturn
+                        .form-group
+                            label Route <small>(like: http://earth.servejson.com/<strong class="text-primary">get_list</strong>)</small>
+                            input(type='text' class='form-control' required='true' placeholder='get_list')
+                        .form-group
+                            label Type
+                            select(class='form-control input-sm' required='true')
+                                option(value='get') GET
+                                option(value='post') POST
+                                option(value='put') PUT
+                                option(value='delete') DELETE
+                        .form-group
+                            label Json
+                            input(type='hidden' name='content_json')
+                            #editor-ace
+                        .form-group
+                            button(type='submit' class='btn btn-default button_servejson_buttom') Submit
+        .col-md-2

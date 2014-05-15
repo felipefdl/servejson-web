@@ -3,9 +3,15 @@ html(lang="en" ng-app="servejson" ng-controller="mainController")
     include partials/head
     include partials/styles
     body
+        include partials/header
         .container
-            include partials/header
             include partials/loading_page
-            div(id="content-page" ng-view)
+
+            //- Includes contents
+            .container-template
+                include content/welcome
+                include content/editor
+                include content/listjson
+
             include partials/footer
         include partials/scripts

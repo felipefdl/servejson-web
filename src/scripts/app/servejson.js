@@ -2,13 +2,15 @@
 /*globals angular*/
 'use strict';
 
-var routes      = require('./routes.js');
 var controllers = require('./controllers/');
+var frontend    = require('./frontend/');
 
 (function () {
-    var sevejson = angular.module('servejson', ['ngRoute']);
+    var sevejson = angular.module('servejson', []);
 
-    sevejson.config(routes);
     sevejson.controller('mainController', controllers.mainController);
     sevejson.controller('home', controllers.home);
 }());
+
+//Frontend
+frontend.init();
