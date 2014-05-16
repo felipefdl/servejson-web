@@ -11,7 +11,8 @@
     "node": ">=0.10.3 <0.12"
   },
   "scripts": {
-    "test": "gulp default"
+    "test": "gulp default",
+    "start": "node index.js"
   },
   "bugs": {
     "url": "https://github.com/koshoo/servejson-web/issues"
