@@ -9,4 +9,5 @@ var controllers = require('./controllers/');
 
     sevejson.controller('mainController', controllers.mainController);
     sevejson.controller('newjson', controllers.newjson);
+    sevejson.controller('jsonlist', controllers.jsonlist);
 }());

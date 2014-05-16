@@ -1,12 +1,16 @@
 div(class='container')
-    .row
+    .row(ng-controller='jsonlist')
         .col-md-2
         .col-md-8
             .servejson_main_div
                 .servejson_space_div
                     .row
                         .col-md-12
-                            h1.servejson_title Json list
+                            h1.servejson_title Latest json registered
                 .servejson_space_div
-                    p teste
+                    div(class='servejson_jslint')
+                        table(class='table table-striped table-bordered')
+                            tr(ng-repeat="route in routes")
+                                td {{route.type.toUpperCase()}}
+                                td http://{{route.subdomain}}.servejson.com/{{route.route}}
         .col-md-2

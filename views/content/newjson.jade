@@ -11,7 +11,7 @@ div(class='container')
                     form(role='form' ng-submit='submit(newjson)')
                         .form-group
                             label Sub-Domain <small>(like: http://<strong class="text-primary">earth</strong>.servejson.com)</small>
-                            select(class='form-control' ng-model='newjson.domain' required='true')
+                            select(class='form-control' ng-model='newjson.subdomain' required='true')
                                 option(value='' disabled='true') Please select
                                 option(value='earth') Earth
                                 option(value='mars') Mars
@@ -34,3 +34,19 @@ div(class='container')
                         .form-group
                             button(type='submit' class='btn btn-default button_servejson_buttom') Submit
         .col-md-2
+
+        //- MODAL
+        div(class='modal fade resultmodal' tabindex='-1' role='dialog' aria-labelledby='Result' aria-hidden='true')
+            div(class='modal-dialog modal-sm')
+                div(class='modal-content')
+                    div(class='modal-header')
+                        h4.modal-title#Result {{result.result}}
+                    div(class='modal-body' ng-if='result.result == "Success"')
+                        p Hi! Your json was created.
+                        p Sub-Domain: {{result.subdomain}}
+                        p Method: {{result.type}}
+                        p URL: http://{{result.subdomain}}.servejson.com/{{result.route}}
+                    div(class='modal-body' ng-if='result.result == "Error"')
+                        p {{result.error}}
+                    div(class='modal-footer')
+                        button(class='btn btn-primary' type='button' data-dismiss='modal') Close
