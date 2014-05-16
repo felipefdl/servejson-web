@@ -28,10 +28,10 @@ function newjson($scope, $http) {
 
         $http(objrequest).success(function (data) {
             if (data.status) {
-                $scope.result        = newjob;
                 $scope.result.result = 'Success';
                 $scope.result.route  = infra.remove_slash(newjob.route);
                 $scope.result.type   = newjob.type.toUpperCase();
+                $scope.result.subdomain = newjob.subdomain;
             } else {
                 $scope.result.result = 'Error';
                 $scope.result.error  = window.errors[data.code[0]];
