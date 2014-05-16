@@ -17,6 +17,8 @@ gulp.task('copy_and_paste', function () {
         .pipe(gulp.dest('./dist/scripts/vendor'));
     gulp.src('./src/styles/*.css')
         .pipe(gulp.dest('./dist/styles'));
+    gulp.src('./src/images/*')
+        .pipe(gulp.dest('./dist/images'));
     gulp.src('./src/robots.txt')
         .pipe(gulp.dest('./dist'));
 });
@@ -54,7 +56,7 @@ gulp.task('less', function () {
 gulp.task('images', function () {
     gulp.src('./src/images/*')
         .pipe(imagemin({ 'optimizationLevel': 5 }))
-        .pipe(gulp.dest('./dist/images'));
+        .pipe(gulp.dest('./src/images'));
 });
 
 gulp.task('watch', function () {
@@ -62,4 +64,4 @@ gulp.task('watch', function () {
     gulp.watch('./src/styles/**/*.less', ['less']);
 });
 
-gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'less', 'images']);
+gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'less']);
