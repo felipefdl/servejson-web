@@ -1,11 +1,11 @@
 /*jslint node:true, unparam:true, nomen: true*/
 'use strict';
 
-var express = require('express');
-var util    = require('util');
-var config  = require('./configuration.js');
-var app     = express();
-
+var express  = require('express');
+var util     = require('util');
+var config   = require('./configuration.js');
+var newrelic = require('./newrelic.js');
+var app      = express();
 
 // Views and public files config
 app.set('views', __dirname + '/views');
@@ -15,6 +15,7 @@ app.use(express.static(__dirname + '/dist'));
 // Express config
 app.set('port', config.port);
 app.disable('x-powered-by');
+newrelic.start();
 
 // Routes
 app.get('*', function (req, res, next) {
