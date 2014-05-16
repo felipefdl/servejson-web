@@ -6,7 +6,7 @@ build:
             code: npm install --silent
         - script:
             name: build
-            code: gulp
+            code: ./node_modules/gulp/bin/gulp.js
         - script:
             name: environment info
             code: |-

@@ -4,7 +4,7 @@ Koshoo ServeJSON WEB
 
 ## Code Status
 
---
+[![wercker status](https://app.wercker.com/status/6440277fc78e2e22058ad88b1e3d5be8/m "wercker status")](https://app.wercker.com/project/bykey/6440277fc78e2e22058ad88b1e3d5be8)
 
 ## Documentation
 
