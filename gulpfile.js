@@ -3,7 +3,6 @@
 
 var gulp       = require('gulp');
 var jslint     = require('gulp-jslint');
-var uglify     = require('gulp-uglify');
 var imagemin   = require('gulp-imagemin');
 var browserify = require('gulp-browserify');
 var less       = require('gulp-less');
@@ -38,9 +37,8 @@ gulp.task('scripts', function () {
         .pipe(jslint())
         .pipe(browserify({
             'insertGlobals': false,
-            'debug': true
+            'debug': false
         }))
-        // .pipe(uglify())
         .pipe(gulp.dest('./dist/scripts/app'));
 });
 
@@ -62,6 +60,8 @@ gulp.task('images', function () {
 gulp.task('watch', function () {
     gulp.watch('./src/scripts/app/**/*.js', ['jslint', 'scripts']);
     gulp.watch('./src/styles/**/*.less', ['less']);
+    gulp.watch('./src/images/**/*', ['images', 'copy_and_paste']);
+    gulp.watch('./src/fonts/**/*', ['copy_and_paste']);
 });
 
 gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'less']);
