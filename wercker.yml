@@ -1,0 +1,31 @@
+box: wercker/nodejs
+build:
+    steps:
+        - script:
+            name: install dependencies
+            code: npm install --silent
+        - script:
+            name: build
+            code: gulp
+        - script:
+            name: environment info
+            code: |-
+                echo "node version: $(node -v)"
+                echo "npm version: $(npm -v)"
+deploy:
+    steps:
+        - script:
+            name: preparing package
+            code: |-
+                sed -i '/dist/d' .gitignore
+        - script:
+            name: setting up credential
+            code: |-
+                git config user.email "koshoo@koshoo.com"
+                git config user.name "Koshoo auto-deploy"
+        - script:
+            name: finalizing and closing package
+            code: |-
+                git add -A
+                git commit -a -m "Added files to production"
+        - heroku-deploy
