@@ -17,6 +17,8 @@ gulp.task('copy_and_paste', function () {
         .pipe(gulp.dest('./dist/scripts/vendor'));
     gulp.src('./src/styles/*.css')
         .pipe(gulp.dest('./dist/styles'));
+    gulp.src('./src/robots.txt')
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('jslint', function () {
