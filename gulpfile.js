@@ -7,7 +7,13 @@ var imagemin   = require('gulp-imagemin');
 var browserify = require('gulp-browserify');
 var less       = require('gulp-less');
 var minifyCSS  = require('gulp-minify-css');
+var clean      = require('gulp-clean');
 var path       = require('path');
+
+gulp.task('clean', function () {
+    gulp.src('./dist/**/*.*', {read: false})
+        .pipe(clean());
+});
 
 gulp.task('copy_and_paste', function () {
     gulp.src('./src/fonts/*')
@@ -64,4 +70,4 @@ gulp.task('watch', function () {
     gulp.watch('./src/fonts/**/*', ['copy_and_paste']);
 });
 
-gulp.task('default', ['jslint', 'copy_and_paste', 'scripts', 'less']);
+gulp.task('default', ['jslint', 'clean', 'copy_and_paste', 'scripts', 'less']);
