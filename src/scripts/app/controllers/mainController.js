@@ -10,7 +10,9 @@ function get_error_list($http) {
     };
 
     $http(objrequest).success(function (data) {
-        window.errors = data;
+        if (data.status) {
+            window.errors = data.result;
+        }
     });
 }
 
