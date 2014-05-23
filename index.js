@@ -14,7 +14,6 @@ app.use(express.static(__dirname + '/dist'));
 
 // Express config
 app.set('port', config.port);
-app.disable('x-powered-by');
 newrelic.start();
 
 // Routes
