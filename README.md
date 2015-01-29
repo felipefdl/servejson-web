@@ -10,7 +10,7 @@ ServeJSON is an open source product, made to help you to create prototypes or an
 
 #### Installation
 ```
-git clone https://github.com/koshoo/servejson-web.git
+git clone https://github.com/felipefdl/servejson-web.git
 npm install
 ```
 
@@ -26,4 +26,4 @@ node index.js
 
 ## License
 
-ServeJSON Server is released under the [MIT License](https://github.com/koshoo/servejson-web/blob/master/LICENSE).
+ServeJSON Server is released under the [MIT License](https://github.com/felipefdl/servejson-web/blob/master/LICENSE).

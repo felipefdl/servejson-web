@@ -21,8 +21,8 @@ deploy:
         - script:
             name: setting up credential
             code: |-
-                git config user.email "koshoo@koshoo.com"
-                git config user.name "Koshoo auto-deploy"
+                git config user.email "felipe@ferreiradelima.com"
+                git config user.name "Felipe Lima"
         - script:
             name: finalizing and closing package
             code: |-
