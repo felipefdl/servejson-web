@@ -1,6 +1,6 @@
 ## ServeJSON { } WEB
 
-Koshoo ServeJSON WEB
+ServeJSON is an open source product, made to help you to create prototypes or any other use when using REST with json response.
 
 ## Code Status
 
